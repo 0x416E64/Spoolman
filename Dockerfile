@@ -1,3 +1,12 @@
+FROM node:20-alpine as node-builder
+
+COPY ./client/ /opt/client/
+WORKDIR /opt/client
+
+RUN echo "VITE_APIURL=/api/v1" > .env.production \
+    && npm install . \
+    && npm run build
+
 FROM python:3.11-alpine as python-builder
 
 RUN apk add --no-cache g++ python3-dev libpq-dev libstdc++ shadow
@@ -41,7 +50,7 @@ RUN groupmod -g 1000 users \
     && chown -R app:app /home/app/.local/share/spoolman
 
 # Copy built client
-COPY --chown=app:app ./client/dist /home/app/spoolman/client/dist
+COPY --from=node-builder --chown=app:app /opt/client/dist /home/app/spoolman/client/dist
 
 # Copy built app
 COPY --chown=app:app --from=python-builder /home/app/spoolman /home/app/spoolman
