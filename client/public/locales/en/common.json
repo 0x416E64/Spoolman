@@ -265,6 +265,9 @@
             "tab": "General",
             "currency": {
                 "label": "Currency"
+            },
+            "qr_code_url": {
+                "label": "URL for QR code"
             }
         },
         "extra_fields": {

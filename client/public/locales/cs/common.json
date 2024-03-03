@@ -327,6 +327,9 @@
             "tab": "Obecné",
             "currency": {
                 "label": "Měna"
+            },
+            "qr_code_url": {
+                "label": "URL pro QR kód"
             }
         }
     }
