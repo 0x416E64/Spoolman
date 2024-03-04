@@ -77,6 +77,7 @@ export function GeneralSettings() {
 
         <Form.Item
           label={t("settings.general.qr_code_url.label")}
+          tooltip={t("settings.general.qr_code_url.tooltip")}
           name="qr_code_url"
           rules={[
             {
