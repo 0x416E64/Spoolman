@@ -130,7 +130,7 @@ const SpoolQRCodePrintingDialog: React.FC<SpoolQRCodePrintingDialog> = ({ visibl
           <Form.Item label={t("printing.qrcode.showVendorComment")}>
             <Switch checked={showVendorComment} onChange={(checked) => setShowVendorComment(checked)} />
           </Form.Item>
-          <Form.Item label={t("printing.qrcode.useHTTPUrl")}>
+          <Form.Item label={t("printing.qrcode.useHTTPUrl")} tooltip={t("printing.qrcode.useHTTPUrl_tooltip")}>
             <Switch checked={useHTTPUrl} onChange={(checked) => setUseHTTPUrl(checked)} />
           </Form.Item>
         </>
